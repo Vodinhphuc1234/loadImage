@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Nav, Navbar } from "react-bootstrap";
+import "./App.css";
 
-function App() {
+import React from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import ImageWithButton from "./pages/ImageWithButton";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar
+        expand="lg"
+        bg="success"
+        variant="dark"
+        className="position-sticky top-0"
+        style={{ zIndex: 10 }}
+      >
+        <Container>
+          <Navbar.Brand href="#home">
+            <h4>Homework Lesson 2</h4>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link>
+                <Link
+                  to="/load-image-with-button"
+                  className="text-decoration-none"
+                >
+                  <h6 className="text-light">Load image with button</h6>
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="" className="text-decoration-none">
+                  <h6 className="text-light">Load image at first</h6>
+                </Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      <Container className="pt-3">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/load-image-with-button" element={<ImageWithButton />} />
+        </Routes>
+      </Container>
+    </>
   );
 }
-
-export default App;
