@@ -11,7 +11,7 @@ export default function ImageWithButton() {
     return ret.data;
   };
   const query = useQuery({
-    queryKey: ["Image"],
+    queryKey: ["ImageWithButton"],
     queryFn: loadImage,
     enabled: false,
   });
